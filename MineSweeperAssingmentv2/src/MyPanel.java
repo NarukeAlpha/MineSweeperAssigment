@@ -40,12 +40,9 @@ public class MyPanel extends JPanel {
 	}
 
 	public void mineSetter(int numOfBombs){
-		//		for(int c=0;c<numOfBombs;c++){
-		//			Color minesColor = Color.BLACK;
-		//			int x = cGen.nextInt(9), y =cGen.nextInt(9);
-		//			System.out.println("x:"+x+"y:"+y);
-		//			minesArray[x][y] = minesColor;
-		//		}
+				for(int c=0;c<numOfBombs;c++)
+					minesArray[cGen.nextInt(9)][cGen.nextInt(9)] = Color.BLACK;
+				
 
 	}
 	public void paintComponent(Graphics g) {
