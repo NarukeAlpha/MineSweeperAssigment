@@ -12,12 +12,17 @@ public class MyPanel extends JPanel {
 	private static final int INNER_CELL_SIZE = 29;
 	private static final int TOTAL_COLUMNS = 10;
 	private static final int TOTAL_ROWS = 11;   //Last row has only one cell
+	private Random cGen = new Random();
 	public int x = -1;
 	public int y = -1;
 	public int mouseDownGridX = 0;
 	public int mouseDownGridY = 0;
 	public Color[][] colorArray = new Color[TOTAL_COLUMNS][TOTAL_ROWS];
+	public Color[][] minesArray = new Color[TOTAL_COLUMNS][TOTAL_ROWS];
+	
 	public MyPanel() {   //This is the constructor... this code runs first to initialize
+		mineSetter(7);
+		
 		if (INNER_CELL_SIZE + (new Random()).nextInt(1) < 1) {	//Use of "random" to prevent unwanted Eclipse warning
 			throw new RuntimeException("INNER_CELL_SIZE must be positive!");
 		}
@@ -38,6 +43,16 @@ public class MyPanel extends JPanel {
 				colorArray[x][y] = Color.WHITE;
 			}
 		}
+	}
+	
+	public void mineSetter(int numOfBombs){
+		for(int c=0;c<numOfBombs;c++){
+			Color minesColor = Color.BLACK;
+			int x = cGen.nextInt(9)+1, y =cGen.nextInt(9)+1;
+			System.out.println("x:"+x+"y:"+y);
+			minesArray[x][y] = minesColor;
+		}
+		
 	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
