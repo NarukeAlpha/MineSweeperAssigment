@@ -103,7 +103,7 @@ public class MyMouseAdapter extends MouseAdapter {
 						//Do nothing
 					} else {
 
-						if(myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] == Color.WHITE) {
+						if(myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] == Color.WHITE || myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY]==Color.RED) {
 
 							if(!(myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] == Color.RED) ) {
 								myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = Color.RED; 
