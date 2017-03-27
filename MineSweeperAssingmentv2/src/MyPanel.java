@@ -129,4 +129,18 @@ public class MyPanel extends JPanel {
 		}
 		return y;
 	}
+	public boolean gameHasEnded(){
+		int minesOnDisplay=0;
+		for(int gx=0;gx<9;gx++){
+			for(int gy=0;gy<9;gy++){
+				if(colorArray[gx][gy]==Color.BLACK){
+					minesOnDisplay++;
+				}
+			}
+		}
+		if(minesOnDisplay==7)
+			return true;
+		return false;
+		
+	}
 }

@@ -75,14 +75,32 @@ public class MyMouseAdapter extends MouseAdapter {
 						//Do nothing
 					} else {
 						//Released the mouse button on the same cell where it was pressed
-						if (myPanel.minesArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY]==Color.BLACK) {
-							//paint mines, end game
-							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = Color.BLACK;
-							myPanel.repaint();
-						} else {
-							//paint square light gray
-							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = Color.LIGHT_GRAY;
-							myPanel.repaint();
+						if(myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY]== Color.RED){
+							// do nothing
+						}else{
+							if (myPanel.minesArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY]==Color.BLACK) {
+								//paint mines, end game
+								for(int gX = 0;gX<9;gX++){
+									for(int gY = 0;gY<9;gY++){
+										if(myPanel.minesArray[gX][gY]==Color.BLACK){
+											myPanel.colorArray[gX][gY]=Color.BLACK;
+											myPanel.repaint();
+										}else{
+											myPanel.colorArray[gX][gY]=Color.LIGHT_GRAY;
+											myPanel.repaint();
+										}
+											
+									}
+								}
+								myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = Color.BLACK;
+								myPanel.repaint();
+								
+								
+							} else {
+								//paint square light gray
+								myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = Color.LIGHT_GRAY;
+								myPanel.repaint();
+							}
 						}
 					}
 				}
