@@ -32,8 +32,14 @@ public class Main {
 
 		myFrame.setVisible(true);
 		while(true){
-			if(myPanel.gameHasEnded()){
-				label1.setText("       You lose");
+			if(myPanel.gameIsLost()){
+				label1.setText("            You lose");
+				popUpmsg.add(label1);
+				popUpmsg.setVisible(true);
+				break;
+			}
+			if(myPanel.gameIsWon()){
+				label1.setText("       !!!YOU WIN!!!");
 				popUpmsg.add(label1);
 				popUpmsg.setVisible(true);
 				break;

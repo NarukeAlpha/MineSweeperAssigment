@@ -89,22 +89,38 @@ public class MyMouseAdapter extends MouseAdapter {
 											myPanel.colorArray[gX][gY]=Color.LIGHT_GRAY;
 											myPanel.repaint();
 										}
-											
+
 									}
 								}
 								myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = Color.BLACK;
 								myPanel.repaint();
-								
-								
+
+
 							} else {
 								//paint square light gray
-								myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = Color.LIGHT_GRAY;
-								myPanel.repaint();
+								if(myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY]==Color.LIGHT_GRAY){
+									//do nothing
+								}else{
+									if(!(myPanel.minesArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY]==Color.BLACK))
+										myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY]=Color.LIGHT_GRAY;
+									for(int mX=myPanel.mouseDownGridX-1;mX<=myPanel.mouseDownGridX+1;mX++){
+										for(int mY=myPanel.mouseDownGridY-1;mY<=myPanel.mouseDownGridY+1;mY++){
+											if(mX<9&&mX>-1&&mY<9&&mY>-1){
+												if(!(myPanel.minesArray[mX][mY]==Color.BLACK)){
+													myPanel.colorArray[mX][mY]=Color.LIGHT_GRAY;
+												}
+											}
+										}
+									}
+								}
+
 							}
+							myPanel.repaint();
 						}
 					}
 				}
 			}
+
 			myPanel.repaint();
 			break;
 		case 3:		//Right mouse button

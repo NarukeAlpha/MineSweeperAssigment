@@ -129,7 +129,7 @@ public class MyPanel extends JPanel {
 		}
 		return y;
 	}
-	public boolean gameHasEnded(){
+	public boolean gameIsLost(){
 		int minesOnDisplay=0;
 		for(int gx=0;gx<9;gx++){
 			for(int gy=0;gy<9;gy++){
@@ -142,5 +142,18 @@ public class MyPanel extends JPanel {
 			return true;
 		return false;
 		
+	}
+	public boolean gameIsWon(){
+		int freeSquares=0;
+		for(int gx=0;gx<9;gx++){
+			for(int gy=0;gy<9;gy++){
+				if(colorArray[gx][gy]==Color.LIGHT_GRAY){
+					freeSquares++;
+				}
+			}
+		}
+	if(freeSquares==74)
+		return true;
+	return false;
 	}
 }
