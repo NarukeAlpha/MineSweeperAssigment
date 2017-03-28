@@ -40,9 +40,9 @@ public class MyPanel extends JPanel {
 	}
 
 	public void mineSetter(int numOfBombs){
-				for(int c=0;c<numOfBombs;c++)
+				for(int c=0;c<numOfBombs;c++){
 					minesArray[cGen.nextInt(9)][cGen.nextInt(9)] = Color.BLACK;
-				
+				}
 
 	}
 	public void paintComponent(Graphics g) {
@@ -138,7 +138,7 @@ public class MyPanel extends JPanel {
 				}
 			}
 		}
-		if(minesOnDisplay==7)
+		if(minesOnDisplay<=7&&minesOnDisplay!=0)
 			return true;
 		return false;
 		
@@ -152,7 +152,7 @@ public class MyPanel extends JPanel {
 				}
 			}
 		}
-	if(freeSquares==74)
+	if(freeSquares>=74)
 		return true;
 	return false;
 	}
